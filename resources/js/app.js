@@ -5,7 +5,7 @@ import { routes } from './routes';
 
 import Master from './components/Master.vue';
 
-const app = createApp({});
+const app = createApp(Master);
 
 const router = createRouter({
     history: createWebHistory(),
