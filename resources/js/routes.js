@@ -14,7 +14,18 @@ const routes = [
     { path: '/products', component: ProductComponent },
   ];
 
-export const router = createRouter({
+ const router = createRouter({
   history: createWebHistory(),
   routes,
 })
+
+// router.beforeEach((to, from, next) => {
+//   if (to.name !== '/' && to.name !=='register'){
+
+//     next({ name: '/' })
+//   } 
+//   // if the user is not authenticated, `next` is called twice
+//   next()
+// })
+
+export default router;

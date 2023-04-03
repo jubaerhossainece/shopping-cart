@@ -7,6 +7,10 @@
                     <div class="card-header">Login</div>
 
                     <div class="card-body">
+                        <div v-if="message" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Warning!</strong> {{message}}
+                        </div>
+
                         <form @submit.prevent="OnLogin">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
@@ -48,7 +52,8 @@
                     email:'',
                     password:''
                 },
-                errors: []
+                errors: [],
+                message: ''
             }
         },
         methods: {
@@ -57,16 +62,16 @@
                 .post(`${process.env.MIX_APP_URL}/login`, this.form)
                 .then(response => {
                     console.log(response);
-                    this.info = response.data.bpi
+                    this.$router.push('/products');
+                    
                 })
                 .catch(error => {
-                    console.log(error.response.data)
-                    this.errors = error.response.data.errors
+                    console.log(error.response.data);
+                    this.errors = error.response.data.errors;
+                    this.message = error.response.data.message;
+                    console.log(this.message);
                 })
             },
         },
-        mounted() {
-            console.log()
-        }
     }
 </script>

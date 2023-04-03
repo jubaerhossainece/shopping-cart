@@ -21203,8 +21203,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  methods: {
+    logout: function logout() {
+      var _this = this;
+      axios.post("".concat("http://127.0.0.1:8000", "/logout"), this.form).then(function (response) {
+        console.log(response);
+        if (response.data.status == true) {
+          _this.$router.push('/');
+        }
+      })["catch"](function (error) {
+        console.log(error.response.data);
+        _this.errors = error.response.data.errors;
+      });
+    }
   }
 });
 
@@ -21228,7 +21239,8 @@ __webpack_require__.r(__webpack_exports__);
         email: '',
         password: ''
       },
-      errors: []
+      errors: [],
+      message: ''
     };
   },
   methods: {
@@ -21236,15 +21248,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       axios.post("".concat("http://127.0.0.1:8000", "/login"), this.form).then(function (response) {
         console.log(response);
-        _this.info = response.data.bpi;
+        _this.$router.push('/products');
       })["catch"](function (error) {
         console.log(error.response.data);
         _this.errors = error.response.data.errors;
+        _this.message = error.response.data.message;
+        console.log(_this.message);
       });
     }
-  },
-  mounted: function mounted() {
-    console.log();
   }
 });
 
@@ -21644,31 +21655,27 @@ var _hoisted_5 = {
 };
 var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fas fa-cart-plus pr-2"
+    "class": "fas fa-sign-out-alt pr-2"
   }, null, -1 /* HOISTED */);
 });
 var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fas fa-sign-out-alt pr-2"
+    "class": "fas fa-cart-plus pr-2"
   }, null, -1 /* HOISTED */);
 });
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row\" data-v-7e94e6d4><div class=\"col-md-3 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-3 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-3 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-3 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-4 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-4 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div></div>", 1);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    onSubmit: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.logout && $options.logout.apply($options, arguments);
+    }, ["prevent"]))
+  }, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Logout ")], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/cart",
     "class": "btn"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_6];
-    }),
-    _: 1 /* STABLE */
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/",
-    "class": "btn"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Logout")];
+      return [_hoisted_7];
     }),
     _: 1 /* STABLE */
   })])])]), _hoisted_8]);
@@ -21708,32 +21715,38 @@ var _hoisted_6 = {
   "class": "card-body"
 };
 var _hoisted_7 = {
+  key: 0,
+  "class": "alert alert-danger alert-dismissible fade show",
+  role: "alert"
+};
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, "Warning!", -1 /* HOISTED */);
+var _hoisted_9 = {
   "class": "mb-3"
 };
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "email",
   "class": "form-label"
 }, "Email address", -1 /* HOISTED */);
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "emailHelp",
   "class": "form-text"
 }, "We'll never share your email with anyone else.", -1 /* HOISTED */);
-var _hoisted_10 = {
+var _hoisted_12 = {
   key: 0,
   "class": "text-danger"
 };
-var _hoisted_11 = {
+var _hoisted_13 = {
   "class": "mb-3"
 };
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "password",
   "class": "form-label"
 }, "Password", -1 /* HOISTED */);
-var _hoisted_13 = {
+var _hoisted_15 = {
   key: 0,
   "class": "text-danger"
 };
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "mb-3 form-check"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "checkbox",
@@ -21743,20 +21756,20 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "form-check-label",
   "for": "exampleCheck1"
 }, "Remember me")], -1 /* HOISTED */);
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   type: "submit",
   "class": "btn btn-primary"
 }, "Login", -1 /* HOISTED */);
-var _hoisted_16 = {
+var _hoisted_18 = {
   "class": "mt-3"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [$data.message ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.message), 1 /* TEXT */)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     onSubmit: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.OnLogin && $options.OnLogin.apply($options, arguments);
     }, ["prevent"]))
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "email",
     name: "email",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -21766,7 +21779,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "email"
   }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.email, void 0, {
     trim: true
-  }]]), _hoisted_9, $data.errors.email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.email[0]), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }]]), _hoisted_11, $data.errors.email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.email[0]), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "password",
     name: "password",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
@@ -21776,7 +21789,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "password"
   }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.password, void 0, {
     trim: true
-  }]]), $data.errors.password ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.password[0]), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_14, _hoisted_15], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Not registered? "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  }]]), $data.errors.password ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.password[0]), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_16, _hoisted_17], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Not registered? "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "register",
     "class": "link"
   }, {
@@ -21938,7 +21951,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)(_components_Master_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
-app.use(_routes__WEBPACK_IMPORTED_MODULE_2__.router);
+app.use(_routes__WEBPACK_IMPORTED_MODULE_2__["default"]);
 app.component("master-component", _components_Master_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
 app.mount('#app');
 
@@ -21977,7 +21990,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "router": () => (/* binding */ router)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.mjs");
 /* harmony import */ var _components_auth_Login_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/auth/Login.vue */ "./resources/js/components/auth/Login.vue");
@@ -22006,6 +22019,17 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_4__.createRouter)({
   history: (0,vue_router__WEBPACK_IMPORTED_MODULE_4__.createWebHistory)(),
   routes: routes
 });
+
+// router.beforeEach((to, from, next) => {
+//   if (to.name !== '/' && to.name !=='register'){
+
+//     next({ name: '/' })
+//   } 
+//   // if the user is not authenticated, `next` is called twice
+//   next()
+// })
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
 /***/ }),
 

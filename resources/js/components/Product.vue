@@ -5,8 +5,11 @@
             <a class="navbar-brand">Navbar</a>
 
             <div class="d-flex">
+                <form @submit.prevent="logout">
+                    <i class="fas fa-sign-out-alt pr-2"></i> Logout
+                </form>
+
                 <router-link to="/cart" class="btn"><i class="fas fa-cart-plus pr-2"></i></router-link>
-                <router-link to="/" class="btn"><i class="fas fa-sign-out-alt pr-2"></i> Logout</router-link>
             </div>
         </div>
         </nav>
@@ -272,20 +275,28 @@
     
                                 
                                  
-               </div> 
-    
-    
-    
-    
-    
+               </div>
             </div>
         </div>
 </template>
    
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        methods: {
+            logout(){
+                axios
+                .post(`${process.env.MIX_APP_URL}/logout`, this.form)
+                .then(response => {
+                    console.log(response);
+                    if(response.data.status == true){
+                        this.$router.push('/');
+                    }
+                })
+                .catch(error => {
+                    console.log(error.response.data);
+                    this.errors = error.response.data.errors
+                })
+            }
         }
     }
 </script>

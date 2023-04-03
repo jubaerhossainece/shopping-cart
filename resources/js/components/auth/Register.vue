@@ -70,7 +70,7 @@
                     }
                 })
                 .catch(error => {
-                    console.log(error.response.data)
+                    console.log(error.response.data);
                     this.errors = error.response.data.errors
                 })
             },
