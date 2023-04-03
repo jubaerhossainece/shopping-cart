@@ -62,6 +62,7 @@
                 .post(`${process.env.MIX_APP_URL}/login`, this.form)
                 .then(response => {
                     console.log(response);
+                    localStorage.setItem('token', 'response');
                     this.$router.push('/products');
                     
                 })

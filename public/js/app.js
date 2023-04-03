@@ -21248,6 +21248,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       axios.post("".concat("http://127.0.0.1:8000", "/login"), this.form).then(function (response) {
         console.log(response);
+        localStorage.setItem('token', 'response');
         _this.$router.push('/products');
       })["catch"](function (error) {
         console.log(error.response.data);
@@ -22004,10 +22005,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var routes = [{
   path: '/',
-  component: _components_auth_Login_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  component: _components_auth_Login_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+  name: 'login'
 }, {
   path: '/register',
-  component: _components_auth_Register_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  component: _components_auth_Register_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+  name: 'register'
 }, {
   path: '/cart',
   component: _components_Cart_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -22019,15 +22022,21 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_4__.createRouter)({
   history: (0,vue_router__WEBPACK_IMPORTED_MODULE_4__.createWebHistory)(),
   routes: routes
 });
-
-// router.beforeEach((to, from, next) => {
-//   if (to.name !== '/' && to.name !=='register'){
-
-//     next({ name: '/' })
-//   } 
-//   // if the user is not authenticated, `next` is called twice
-//   next()
-// })
+router.beforeEach(function (to, from, next) {
+  if (to.name != 'login' && to.name != 'register') {
+    if (localStorage.getItem('token')) {
+      console.log(localStorage.getItem('token'));
+      next();
+    } else {
+      next({
+        name: 'login'
+      });
+    }
+  } else {
+    next();
+  }
+  // if the user is not authenticated, `next` is called twice
+});
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
