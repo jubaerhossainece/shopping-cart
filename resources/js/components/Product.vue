@@ -1,18 +1,6 @@
 <template>
     <div class="container">
-        <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand">Navbar</a>
-
-            <div class="d-flex">
-                <form @submit.prevent="logout">
-                    <i class="fas fa-sign-out-alt pr-2"></i> Logout
-                </form>
-
-                <router-link to="/cart" class="btn"><i class="fas fa-cart-plus pr-2"></i></router-link>
-            </div>
-        </div>
-        </nav>
+        <Navbar></Navbar>
             <div class="row">
                <div class="col-md-3 mt-2">
                 
@@ -281,7 +269,12 @@
 </template>
    
 <script>
+    import Navbar from "./layouts/NavigationBar.vue";
+
     export default {
+        components: {
+            Navbar
+        },
         methods: {
             logout(){
                 axios

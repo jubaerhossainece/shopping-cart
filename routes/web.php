@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/auth-check', [AuthController::class, 'authentication']);
 
 
 Route::view('/{any}', 'welcome')->where('any', '.*');

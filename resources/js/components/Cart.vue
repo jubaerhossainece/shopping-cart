@@ -1,14 +1,6 @@
 <template>
     <div class="container">
-        <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand">Navbar</a>
-
-            <div class="d-flex">
-                <router-link to="/" class="btn"><i class="fas fa-sign-out-alt pr-2"></i> Logout</router-link>
-            </div>
-        </div>
-        </nav>
+        <Navbar></Navbar>
         <div class="row justify-content-center">
             <div class="col-md-12">
             
@@ -210,7 +202,13 @@
 </template>
    
 <script>
+
+    import Navbar from "./layouts/NavigationBar.vue";
+
     export default {
+        components: {
+            Navbar
+        },
         mounted() {
             console.log('Component mounted.')
         }

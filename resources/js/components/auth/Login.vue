@@ -62,15 +62,16 @@
                 .post(`${process.env.MIX_APP_URL}/login`, this.form)
                 .then(response => {
                     console.log(response);
-                    localStorage.setItem('token', 'response');
+                    let token = response.data.payload.token;
+                    localStorage.setItem('token', token);
                     this.$router.push('/products');
                     
                 })
                 .catch(error => {
-                    console.log(error.response.data);
-                    this.errors = error.response.data.errors;
-                    this.message = error.response.data.message;
-                    console.log(this.message);
+                    console.log(error);
+                    // this.errors = error.response.data.errors;
+                    // this.message = error.response.data.message;
+                    // console.log(this.message);
                 })
             },
         },

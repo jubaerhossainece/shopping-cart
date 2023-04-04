@@ -27,6 +27,7 @@ return new class extends Migration
             ->restrictOnDelete();
 
             $table->string('product_name');
+            $table->string('image');
             $table->string('product_price');
             $table->string('product_discount')->default(0);
             $table->string('product_quantity');

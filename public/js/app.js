@@ -21164,7 +21164,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _layouts_NavigationBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/NavigationBar.vue */ "./resources/js/components/layouts/NavigationBar.vue");
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Navbar: _layouts_NavigationBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -21202,7 +21207,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _layouts_NavigationBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layouts/NavigationBar.vue */ "./resources/js/components/layouts/NavigationBar.vue");
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Navbar: _layouts_NavigationBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   methods: {
     logout: function logout() {
       var _this = this;
@@ -21248,13 +21258,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       axios.post("".concat("http://127.0.0.1:8000", "/login"), this.form).then(function (response) {
         console.log(response);
-        localStorage.setItem('token', 'response');
+        var token = response.data.payload.token;
+        localStorage.setItem('token', token);
         _this.$router.push('/products');
       })["catch"](function (error) {
-        console.log(error.response.data);
-        _this.errors = error.response.data.errors;
-        _this.message = error.response.data.message;
-        console.log(_this.message);
+        console.log(error);
+        // this.errors = error.response.data.errors;
+        // this.message = error.response.data.message;
+        // console.log(this.message);
       });
     }
   }
@@ -21305,6 +21316,46 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/layouts/NavigationBar.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/layouts/NavigationBar.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'Navbar',
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  },
+  methods: {
+    logout: function logout() {
+      var _this = this;
+      var config = {
+        headers: {
+          Authorization: "Bearer ".concat(localStorage.getItem('token'))
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("".concat("http://127.0.0.1:8000", "/logout"), {}, config).then(function (response) {
+        console.log(response);
+        if (response.data.status == true) {
+          _this.$router.push('/');
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Cart.vue?vue&type=template&id=b7f93bea&scoped=true":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Cart.vue?vue&type=template&id=b7f93bea&scoped=true ***!
@@ -21325,51 +21376,32 @@ var _hoisted_1 = {
   "class": "container"
 };
 var _hoisted_2 = {
-  "class": "navbar navbar-light bg-light"
-};
-var _hoisted_3 = {
-  "class": "container-fluid"
-};
-var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    "class": "navbar-brand"
-  }, "Navbar", -1 /* HOISTED */);
-});
-var _hoisted_5 = {
-  "class": "d-flex"
-};
-var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fas fa-sign-out-alt pr-2"
-  }, null, -1 /* HOISTED */);
-});
-var _hoisted_7 = {
   "class": "row justify-content-center"
 };
-var _hoisted_8 = {
+var _hoisted_3 = {
   "class": "col-md-12"
 };
-var _hoisted_9 = {
+var _hoisted_4 = {
   "class": "h-100",
   style: {
     "background-color": "#eee"
   }
 };
-var _hoisted_10 = {
+var _hoisted_5 = {
   "class": "container h-100"
 };
-var _hoisted_11 = {
+var _hoisted_6 = {
   "class": "row d-flex justify-content-center h-100"
 };
-var _hoisted_12 = {
+var _hoisted_7 = {
   "class": "d-flex justify-content-between align-items-center mb-4 mt-4"
 };
-var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "fas fa-long-arrow-left"
   }, null, -1 /* HOISTED */);
 });
-var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "col-md-7"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -21574,26 +21606,19 @@ var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
     "class": "fas fa-trash fa-lg"
   })])])])])])], -1 /* HOISTED */);
 });
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-md-5\" data-v-b7f93bea><div class=\"card mb-4\" data-v-b7f93bea><div class=\"card-header py-3\" data-v-b7f93bea><h5 class=\"mb-0\" data-v-b7f93bea>Summary</h5></div><div class=\"card-body\" data-v-b7f93bea><ul class=\"list-group list-group-flush\" data-v-b7f93bea><li class=\"list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0\" data-v-b7f93bea> Products <span data-v-b7f93bea>$53.98</span></li><li class=\"list-group-item d-flex justify-content-between align-items-center px-0\" data-v-b7f93bea> Shipping <span data-v-b7f93bea>Gratis</span></li><li class=\"list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3\" data-v-b7f93bea><div data-v-b7f93bea><strong data-v-b7f93bea>Total amount</strong><strong data-v-b7f93bea><p class=\"mb-0\" data-v-b7f93bea>(including VAT)</p></strong></div><span data-v-b7f93bea><strong data-v-b7f93bea>$53.98</strong></span></li></ul><button type=\"button\" class=\"btn btn-primary btn-lg btn-block\" data-v-b7f93bea> Go to checkout </button></div></div></div>", 1);
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-md-5\" data-v-b7f93bea><div class=\"card mb-4\" data-v-b7f93bea><div class=\"card-header py-3\" data-v-b7f93bea><h5 class=\"mb-0\" data-v-b7f93bea>Summary</h5></div><div class=\"card-body\" data-v-b7f93bea><ul class=\"list-group list-group-flush\" data-v-b7f93bea><li class=\"list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0\" data-v-b7f93bea> Products <span data-v-b7f93bea>$53.98</span></li><li class=\"list-group-item d-flex justify-content-between align-items-center px-0\" data-v-b7f93bea> Shipping <span data-v-b7f93bea>Gratis</span></li><li class=\"list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3\" data-v-b7f93bea><div data-v-b7f93bea><strong data-v-b7f93bea>Total amount</strong><strong data-v-b7f93bea><p class=\"mb-0\" data-v-b7f93bea>(including VAT)</p></strong></div><span data-v-b7f93bea><strong data-v-b7f93bea>$53.98</strong></span></li></ul><button type=\"button\" class=\"btn btn-primary btn-lg btn-block\" data-v-b7f93bea> Go to checkout </button></div></div></div>", 1);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Navbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Navbar");
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/",
-    "class": "btn"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Logout")];
-    }),
-    _: 1 /* STABLE */
-  })])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": "btn back-btn",
     to: "/products"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Continue shopping")];
+      return [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Continue shopping")];
     }),
     _: 1 /* STABLE */
-  })]), _hoisted_14, _hoisted_15])])])])])]);
+  })]), _hoisted_9, _hoisted_10])])])])])]);
 }
 
 /***/ }),
@@ -21640,46 +21665,10 @@ var _withScopeId = function _withScopeId(n) {
 var _hoisted_1 = {
   "class": "container"
 };
-var _hoisted_2 = {
-  "class": "navbar navbar-light bg-light"
-};
-var _hoisted_3 = {
-  "class": "container-fluid"
-};
-var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    "class": "navbar-brand"
-  }, "Navbar", -1 /* HOISTED */);
-});
-var _hoisted_5 = {
-  "class": "d-flex"
-};
-var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fas fa-sign-out-alt pr-2"
-  }, null, -1 /* HOISTED */);
-});
-var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fas fa-cart-plus pr-2"
-  }, null, -1 /* HOISTED */);
-});
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row\" data-v-7e94e6d4><div class=\"col-md-3 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-3 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-3 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-3 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-4 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-4 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div></div>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row\" data-v-7e94e6d4><div class=\"col-md-3 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-3 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-3 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-3 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-4 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div><div class=\"col-md-4 mt-2\" data-v-7e94e6d4><div class=\"card\" data-v-7e94e6d4><div class=\"card-body\" data-v-7e94e6d4><div class=\"card-img-actions\" data-v-7e94e6d4><img src=\"https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png\" class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\" data-v-7e94e6d4></div></div><div class=\"card-body bg-light text-center\" data-v-7e94e6d4><div class=\"mb-2\" data-v-7e94e6d4><h6 class=\"font-weight-semibold mb-2\" data-v-7e94e6d4><a href=\"#\" class=\"text-default mb-2\" data-abc=\"true\" data-v-7e94e6d4>Toshiba Notebook with 500GB HDD &amp; 8GB RAM</a></h6><a href=\"#\" class=\"text-muted\" data-abc=\"true\" data-v-7e94e6d4>Laptops &amp; Notebooks</a></div><h3 class=\"mb-0 font-weight-semibold\" data-v-7e94e6d4>$250.99</h3><div data-v-7e94e6d4><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i><i class=\"fa fa-star star\" data-v-7e94e6d4></i></div><div class=\"text-muted mb-3\" data-v-7e94e6d4>34 reviews</div><button type=\"button\" class=\"btn bg-cart\" data-v-7e94e6d4><i class=\"fa fa-cart-plus mr-2\" data-v-7e94e6d4></i> Add to cart</button></div></div></div></div>", 1);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-    onSubmit: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-      return $options.logout && $options.logout.apply($options, arguments);
-    }, ["prevent"]))
-  }, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Logout ")], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/cart",
-    "class": "btn"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_7];
-    }),
-    _: 1 /* STABLE */
-  })])])]), _hoisted_8]);
+  var _component_Navbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Navbar");
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navbar), _hoisted_2]);
 }
 
 /***/ }),
@@ -21935,6 +21924,67 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/layouts/NavigationBar.vue?vue&type=template&id=43613304&scoped=true":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/layouts/NavigationBar.vue?vue&type=template&id=43613304&scoped=true ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-43613304"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
+var _hoisted_1 = {
+  "class": "navbar navbar-light bg-light"
+};
+var _hoisted_2 = {
+  "class": "container-fluid"
+};
+var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    "class": "navbar-brand"
+  }, "Navbar", -1 /* HOISTED */);
+});
+var _hoisted_4 = {
+  "class": "d-flex"
+};
+var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-cart-plus pr-2"
+  }, null, -1 /* HOISTED */);
+});
+var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-sign-out-alt pr-2"
+  }, null, -1 /* HOISTED */);
+});
+var _hoisted_7 = [_hoisted_6];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: "/cart",
+    "class": "btn"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_5];
+    }),
+    _: 1 /* STABLE */
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "btn",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.logout && $options.logout.apply($options, arguments);
+    })
+  }, _hoisted_7)])])]);
+}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -22023,21 +22073,39 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_4__.createRouter)({
   routes: routes
 });
 router.beforeEach(function (to, from, next) {
-  if (to.name != 'login' && to.name != 'register') {
-    if (localStorage.getItem('token')) {
-      console.log(localStorage.getItem('token'));
-      next();
-    } else {
+  var isAuthenticated = false;
+  var auth_token = localStorage.getItem('token');
+  var config = {
+    headers: {
+      Authorization: "Bearer ".concat(localStorage.getItem('token'))
+    }
+  };
+  axios.post("".concat("http://127.0.0.1:8000", "/auth-check"), {}, config).then(function (response) {
+    console.log(response);
+    isAuthenticated = response.data.status;
+  })["catch"](function (error) {
+    console.log(error);
+    isAuthenticated = false;
+  })["finally"](function () {
+    if (to.name != 'login' && !isAuthenticated) {
+      // if((to.name != 'login' || to.name != 'register')){
+
+      //   next({name: 'login'});
+
+      // }else{
+
+      //   next();
+
+      // }
       next({
         name: 'login'
       });
+    } else {
+      next();
     }
-  } else {
-    next();
-  }
-  // if the user is not authenticated, `next` is called twice
+  });
+  console.log(auth_token);
 });
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
 /***/ }),
@@ -29281,6 +29349,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\nbody[data-v-7e94e6d4] {\n    margin:
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/layouts/NavigationBar.vue?vue&type=style&index=0&id=43613304&scoped=true&lang=css":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/layouts/NavigationBar.vue?vue&type=style&index=0&id=43613304&scoped=true&lang=css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.back-btn[data-v-43613304]{\n        background-color: white;\n}\ninput#form1[data-v-43613304] {\n        min-width: 50px;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/runtime/api.js":
 /*!*****************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/api.js ***!
@@ -29537,6 +29629,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Product_vue_vue_type_style_index_0_id_7e94e6d4_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/layouts/NavigationBar.vue?vue&type=style&index=0&id=43613304&scoped=true&lang=css":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/layouts/NavigationBar.vue?vue&type=style&index=0&id=43613304&scoped=true&lang=css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NavigationBar_vue_vue_type_style_index_0_id_43613304_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NavigationBar.vue?vue&type=style&index=0&id=43613304&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/layouts/NavigationBar.vue?vue&type=style&index=0&id=43613304&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NavigationBar_vue_vue_type_style_index_0_id_43613304_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NavigationBar_vue_vue_type_style_index_0_id_43613304_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -29987,6 +30109,37 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/components/layouts/NavigationBar.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/layouts/NavigationBar.vue ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _NavigationBar_vue_vue_type_template_id_43613304_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavigationBar.vue?vue&type=template&id=43613304&scoped=true */ "./resources/js/components/layouts/NavigationBar.vue?vue&type=template&id=43613304&scoped=true");
+/* harmony import */ var _NavigationBar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NavigationBar.vue?vue&type=script&lang=js */ "./resources/js/components/layouts/NavigationBar.vue?vue&type=script&lang=js");
+/* harmony import */ var _NavigationBar_vue_vue_type_style_index_0_id_43613304_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavigationBar.vue?vue&type=style&index=0&id=43613304&scoped=true&lang=css */ "./resources/js/components/layouts/NavigationBar.vue?vue&type=style&index=0&id=43613304&scoped=true&lang=css");
+/* harmony import */ var _var_www_personal_shopping_cart_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+
+
+const __exports__ = /*#__PURE__*/(0,_var_www_personal_shopping_cart_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_NavigationBar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_NavigationBar_vue_vue_type_template_id_43613304_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-43613304"],['__file',"resources/js/components/layouts/NavigationBar.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/components/Cart.vue?vue&type=script&lang=js":
 /*!******************************************************************!*\
   !*** ./resources/js/components/Cart.vue?vue&type=script&lang=js ***!
@@ -30063,6 +30216,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Register_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Register_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Register.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/auth/Register.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/layouts/NavigationBar.vue?vue&type=script&lang=js":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/layouts/NavigationBar.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NavigationBar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NavigationBar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NavigationBar.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/layouts/NavigationBar.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -30147,6 +30316,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/layouts/NavigationBar.vue?vue&type=template&id=43613304&scoped=true":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/layouts/NavigationBar.vue?vue&type=template&id=43613304&scoped=true ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NavigationBar_vue_vue_type_template_id_43613304_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NavigationBar_vue_vue_type_template_id_43613304_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NavigationBar.vue?vue&type=template&id=43613304&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/layouts/NavigationBar.vue?vue&type=template&id=43613304&scoped=true");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Cart.vue?vue&type=style&index=0&id=b7f93bea&scoped=true&lang=css":
 /*!**************************************************************************************************!*\
   !*** ./resources/js/components/Cart.vue?vue&type=style&index=0&id=b7f93bea&scoped=true&lang=css ***!
@@ -30169,6 +30354,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Product_vue_vue_type_style_index_0_id_7e94e6d4_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Product.vue?vue&type=style&index=0&id=7e94e6d4&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Product.vue?vue&type=style&index=0&id=7e94e6d4&scoped=true&lang=css");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/layouts/NavigationBar.vue?vue&type=style&index=0&id=43613304&scoped=true&lang=css":
+/*!*******************************************************************************************************************!*\
+  !*** ./resources/js/components/layouts/NavigationBar.vue?vue&type=style&index=0&id=43613304&scoped=true&lang=css ***!
+  \*******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NavigationBar_vue_vue_type_style_index_0_id_43613304_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NavigationBar.vue?vue&type=style&index=0&id=43613304&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/layouts/NavigationBar.vue?vue&type=style&index=0&id=43613304&scoped=true&lang=css");
 
 
 /***/ }),

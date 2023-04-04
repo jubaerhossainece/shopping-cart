@@ -21,17 +21,46 @@ const routes = [
 
 
 router.beforeEach((to, from, next) => {
-  if (to.name != 'login' && to.name != 'register'){
-    if(localStorage.getItem('token')){
-      console.log(localStorage.getItem('token'));
-      next()
-    }else{
-      next({ name: 'login' })
-    }
-  }else{
-    next()
-  }
-  // if the user is not authenticated, `next` is called twice
+    let isAuthenticated = false;
+    
+    let auth_token = localStorage.getItem('token');
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    };
+
+    axios
+    .post(`${process.env.MIX_APP_URL}/auth-check`,{}, config)
+    .then(response => {
+
+      console.log(response);
+      isAuthenticated = response.data.status;
+
+    })
+    .catch(error => {
+      
+      console.log(error);
+      isAuthenticated = false;
+    
+    })
+    .finally(()=>{
+      if (to.name != 'login' && !isAuthenticated){
+        // if((to.name != 'login' || to.name != 'register')){
+         
+        //   next({name: 'login'});
+        
+        // }else{
+        
+        //   next();
+        
+        // }
+        next({name: 'login'});
+      }else{
+        
+        next();
+      }
+    });
+      console.log(auth_token);
+      
 })
 
 export default router;

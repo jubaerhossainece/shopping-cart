@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -62,11 +63,12 @@ class AuthController extends Controller
             ], 401);
          }
  
-          $token = $user->createToken('riseupToken')->plainTextToken;
-         $response = [
-                 'user' => $user,
-                 'token' => $token
-         ];
+        $token = $user->createToken(Str::random(20))->plainTextToken;
+        $response = [
+            'user' => $user,
+            'token' => $token
+        ];
+
          return response([
             'status' => true,
             'message' => 'Login successful!',
@@ -75,10 +77,27 @@ class AuthController extends Controller
     }
 
 
-    public function logout(Request $request){
-        auth()->user()->tokens()->delete();
+    public function authentication(){
+        
+        if(auth('sanctum')->user()){
+            return response([
+                'status' => true
+            ]);
+        }else{
+            return response([
+                'status' => false
+            ],422);
+        }
+    }
+
+
+    public function logout(){
+        
+        auth('sanctum')->user()->tokens()->delete();
+
         return response([
-            'message' => 'You are logged out now!'
+            'message' => 'You are logged out now!',
+            'status' => true
         ]);
     }
 }
