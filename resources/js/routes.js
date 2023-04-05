@@ -2,20 +2,34 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
 
-import LoginComponent from './components/auth/Login.vue';
-import RegisterComponent from './components/auth/Register.vue';
-import CartComponent from './components/Cart.vue';
-import ProductComponent from './components/ProductList.vue';
-import ProductCardComponent from "./components/ProductCard.vue";
+import Login from './pages/auth/Login.vue';
+import Register from './pages/auth/Register.vue';
+import Cart from './components/Cart.vue';
+import Product from './pages/ProductList.vue';
+import ProductCard from "./components/ProductCard.vue";
 
 const routes = [
-    { path: '/', component: LoginComponent, name: 'login' },
-    { path: '/register', component: RegisterComponent, name: 'register' },
-    { path: '/cart', component: CartComponent },
-    { path: '/products', component: ProductComponent },
+    { 
+      path: '/', 
+      component: Login, 
+      name: 'login' 
+    },
+    { 
+      path: '/register', 
+      component: Register, 
+      name: 'register' 
+    },
+    { 
+      path: '/cart', 
+      component: Cart 
+    },
+    { 
+      path: '/products', 
+      component: Product 
+    },
     { 
       path: '/product/:id', 
-      component: ProductCardComponent,
+      component: ProductCard,
       name: 'product',
       props:true
     },

@@ -3,7 +3,7 @@
         <nav-bar></nav-bar>
         <div class="row">
             
-            <div class="col-md-3 mt-2">
+            <div v-for="product in products" :key="product.id" class="col-md-3 mt-2">
                 <product-card></product-card>
             </div>
 
@@ -235,27 +235,21 @@
 </template>
    
 <script>
-    import NavBar from "./layouts/NavigationBar.vue";
-    import ProductCard from "./ProductCard.vue";
+    import NavBar from "../components/layouts/NavigationBar.vue";
+    import ProductCard from "../components/ProductCard.vue";
 
     export default {
         components: {
             NavBar,
             ProductCard,
         },
-        methods: {
-            logout(){
-                axios
-                .post(`${process.env.MIX_APP_URL}/logout`, this.form)
-                .then(response => {
-                    if(response.data.status == true){
-                        this.$router.push('/');
-                    }
-                })
-                .catch(error => {
-                    this.errors = error.response.data.errors
-                })
+        computed: {
+            products(){
+                return this.$store.state.products;
             }
+        },
+        mounted(){
+            this.$store.dispatch('getProducts');
         }
     }
 </script>

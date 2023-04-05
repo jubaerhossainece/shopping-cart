@@ -69,9 +69,6 @@
                 })
                 .catch(error => {
                     console.log(error);
-                    // this.errors = error.response.data.errors;
-                    // this.message = error.response.data.message;
-                    // console.log(this.message);
                 })
             },
         },
