@@ -5,13 +5,20 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LoginComponent from './components/auth/Login.vue';
 import RegisterComponent from './components/auth/Register.vue';
 import CartComponent from './components/Cart.vue';
-import ProductComponent from './components/Product.vue';
+import ProductComponent from './components/ProductList.vue';
+import ProductCardComponent from "./components/ProductCard.vue";
 
 const routes = [
     { path: '/', component: LoginComponent, name: 'login' },
     { path: '/register', component: RegisterComponent, name: 'register' },
     { path: '/cart', component: CartComponent },
     { path: '/products', component: ProductComponent },
+    { 
+      path: '/product/:id', 
+      component: ProductCardComponent,
+      name: 'product',
+      props:true
+    },
   ];
 
  const router = createRouter({
@@ -43,20 +50,22 @@ router.beforeEach((to, from, next) => {
     
     })
     .finally(()=>{
-      if (to.name != 'login' && !isAuthenticated){
-        // if((to.name != 'login' || to.name != 'register')){
+      if (!isAuthenticated){
+        if((to.name == 'login' || to.name == 'register')){
          
-        //   next({name: 'login'});
+          next();
         
-        // }else{
+        }else{
         
-        //   next();
+          next({path: '/'});
         
-        // }
-        next({name: 'login'});
-      }else{
-        
-        next();
+        }
+      }else if(isAuthenticated){
+        if((to.name == 'login' || to.name == 'register')){
+          next({path: 'products'});
+        }else{
+          next();
+        }
       }
     });
       console.log(auth_token);
