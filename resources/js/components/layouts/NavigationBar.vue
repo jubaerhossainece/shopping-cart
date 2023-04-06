@@ -5,7 +5,7 @@
 
             <div class="d-flex">
                
-                <router-link to="/cart" class="btn"><i class="fas fa-cart-plus pr-2"></i></router-link>
+                <router-link to="/cart" class="btn"><i class="fas fa-cart-plus pr-2">{{ cartQuantity }}</i></router-link>
 
                 <button class="btn" @click="logout">
                     <i class="fas fa-sign-out-alt pr-2"></i>
@@ -21,9 +21,6 @@
     
     export default {
         name: 'Navbar',
-        mounted() {
-            
-        },
         methods:{
             logout(){
                 
@@ -46,7 +43,7 @@
         },
         computed: {
             ...mapGetters([
-            'cartQuantity'
+                'cartQuantity'
             ])
         },
         created() {

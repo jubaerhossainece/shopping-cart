@@ -21245,7 +21245,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Navbar',
-  mounted: function mounted() {},
   methods: {
     logout: function logout() {
       var _this = this;
@@ -21300,8 +21299,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     Navbar: _components_layouts_NavigationBar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     CartItem: _components_CartItem_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)(["cartItems", "cartTotal", "cartQuantity"])),
-  methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapActions)(["removeAllCartItems"]))
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)(["cartItems", "cartTotal", "cartQuantity"]))
 });
 
 /***/ }),
@@ -21488,21 +21486,25 @@ var _hoisted_9 = {
 var _hoisted_10 = {
   "class": "mb-0"
 };
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_11 = {
   "class": "col-md-1 col-lg-1 col-xl-1 text-end"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#!",
-  "class": "text-danger"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+};
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-trash fa-lg"
-})])], -1 /* HOISTED */);
-
+}, null, -1 /* HOISTED */);
+var _hoisted_13 = [_hoisted_12];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $props.cartItem.image,
     "class": "img-fluid rounded-3",
     alt: "Cotton T-shirt"
-  }, null, 8 /* PROPS */, _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.cartItem.product_name), 1 /* TEXT */)]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_10, "$" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.cartItem.product_price), 1 /* TEXT */)]), _hoisted_11])])]);
+  }, null, 8 /* PROPS */, _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.cartItem.product_name), 1 /* TEXT */)]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_10, "$" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.cartItem.product_price), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "#!",
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return _ctx.removeCartItem($props.cartItem.id);
+    }),
+    "class": "text-danger"
+  }, _hoisted_13)])])])]);
 }
 
 /***/ }),
@@ -21611,11 +21613,9 @@ var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
 var _hoisted_4 = {
   "class": "d-flex"
 };
-var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fas fa-cart-plus pr-2"
-  }, null, -1 /* HOISTED */);
-});
+var _hoisted_5 = {
+  "class": "fas fa-cart-plus pr-2"
+};
 var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "fas fa-sign-out-alt pr-2"
@@ -21629,8 +21629,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "btn"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_5];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.cartQuantity), 1 /* TEXT */)];
     }),
+
     _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "btn",
@@ -22192,7 +22193,8 @@ var axios = axios__WEBPACK_IMPORTED_MODULE_0__["default"].create({
   }
 });
 var state = {
-  cartItems: []
+  cartItems: [],
+  cartCount: 0
 };
 var mutations = {
   UPDATE_CART_ITEMS: function UPDATE_CART_ITEMS(state, payload) {
@@ -22211,19 +22213,13 @@ var actions = {
     var commit = _ref2.commit;
     console.log(cartItem);
     axios.post("".concat("http://127.0.0.1:8000", "/api/v1/cart-item"), cartItem).then(function (response) {
-      commit('UPDATE_CART_ITEMS', response.data);
+      commit('UPDATE_CART_ITEMS', response.data.payload.cart_items);
     });
   },
-  removeCartItem: function removeCartItem(_ref3, cartItem) {
+  removeCartItem: function removeCartItem(_ref3, cartId) {
     var commit = _ref3.commit;
-    axios["delete"]("".concat("http://127.0.0.1:8000", "/api/cart-item/delete"), cartItem).then(function (response) {
-      commit('UPDATE_CART_ITEMS', response.data);
-    });
-  },
-  removeAllCartItems: function removeAllCartItems(_ref4) {
-    var commit = _ref4.commit;
-    axios["delete"]("".concat("http://127.0.0.1:8000", "/api/cart-item/delete/all")).then(function (response) {
-      commit('UPDATE_CART_ITEMS', response.data);
+    axios["delete"]("".concat("http://127.0.0.1:8000", "/api/v1/cart-item/").concat(cartId, "/delete")).then(function (response) {
+      commit('UPDATE_CART_ITEMS', response.data.payload.cart_items);
     });
   }
 };
@@ -22237,9 +22233,11 @@ var getters = {
     }, 0).toFixed(2);
   },
   cartQuantity: function cartQuantity(state) {
-    return state.cartItems.reduce(function (acc, cartItem) {
-      return cartItem.quantity + acc;
-    }, 0);
+    //   return state.cartItems.reduce((acc, cartItem) => {
+    //     return cartItem.quantity + acc;
+    //   }, 0);
+    console.log('cart-' + state.cartItems.length);
+    return state.cartItems.length;
   }
 };
 var cartModule = {

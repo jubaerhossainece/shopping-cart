@@ -19,7 +19,8 @@ const axios = axiosIns.create({
 })
 
 const state = {
-  cartItems: []
+  cartItems: [],
+  cartCount: 0
 }
 
 const mutations = {
@@ -39,17 +40,12 @@ const actions = {
     addCartItem ({ commit }, cartItem) {
         console.log(cartItem);
       axios.post(`${process.env.MIX_APP_URL}/api/v1/cart-item`, cartItem).then((response) => {
-        commit('UPDATE_CART_ITEMS', response.data)
+        commit('UPDATE_CART_ITEMS', response.data.payload.cart_items)
       });
     },
-    removeCartItem ({ commit }, cartItem) {
-      axios.delete(`${process.env.MIX_APP_URL}/api/cart-item/delete`, cartItem).then((response) => {
-        commit('UPDATE_CART_ITEMS', response.data)
-      });
-    },
-    removeAllCartItems ({ commit }) {
-      axios.delete(`${process.env.MIX_APP_URL}/api/cart-item/delete/all`).then((response) => {
-        commit('UPDATE_CART_ITEMS', response.data)
+    removeCartItem ({ commit }, cartId) {
+      axios.delete(`${process.env.MIX_APP_URL}/api/v1/cart-item/${cartId}/delete`).then((response) => {
+        commit('UPDATE_CART_ITEMS', response.data.payload.cart_items)
       });
     }
   }
@@ -62,9 +58,11 @@ const actions = {
       }, 0).toFixed(2);
     },
     cartQuantity: state => {
-      return state.cartItems.reduce((acc, cartItem) => {
-        return cartItem.quantity + acc;
-      }, 0);
+    //   return state.cartItems.reduce((acc, cartItem) => {
+    //     return cartItem.quantity + acc;
+    //   }, 0);
+    console.log('cart-'+state.cartItems.length);
+    return state.cartItems.length;
     }
   }
 

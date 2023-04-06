@@ -69,9 +69,6 @@
         },
         computed: {
             ...mapGetters(["cartItems", "cartTotal", "cartQuantity"]),
-        },
-        methods: {
-            ...mapActions(["removeAllCartItems"]),
         }
     };
 </script>

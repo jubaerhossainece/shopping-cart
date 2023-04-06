@@ -42,4 +42,23 @@ class CartController extends Controller
             ]
         ]);
     }
+
+
+    public function destroy($id){
+        $cart_item = Cart::find($id);
+
+        if($cart_item){
+            $cart_item->delete();
+
+            $cart_items = Cart::select('id', 'user_id', 'product_name', 'image', 'product_price', 'product_discount', 'product_quantity')->get();
+
+            return response([
+                'status' => true,
+                'message' => 'Cart item removed from cart list',
+                'payload' => [
+                    'cart_items' => $cart_items
+                ]
+            ]);
+        }
+    }
 }

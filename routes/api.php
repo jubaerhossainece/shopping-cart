@@ -20,5 +20,6 @@ Route::group(['prefix' => '/v1', 'middleware' => 'auth:sanctum'],function(){
     Route::get('/products', [ProductController::class, 'index']);
     Route::get('/cart-items', [CartController::class, 'index']);
     Route::post('/cart-item', [CartController::class, 'store']);
+    Route::delete('/cart-item/{id}/delete', [CartController::class, 'destroy']);
 });
 
