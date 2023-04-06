@@ -1,4 +1,22 @@
-import axios from 'axios';
+import axiosIns from 'axios';
+
+
+const axios = axiosIns.create({
+    // You can add your headers here
+    baseURL: process.env.MIX_APP_URL,
+    // baseURL: 'https://sources.com.bd/',
+    timeout: 90000,
+    headers: {
+        'Accept': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Access-Control-Allow-Origin': '*',
+        Authorization: {
+            toString() {
+                return `Bearer ${localStorage.getItem('token')}`
+            },
+        },
+    }
+})
 
 const state = {
   cartItems: []
@@ -19,17 +37,18 @@ const actions = {
       });
     },
     addCartItem ({ commit }, cartItem) {
-      axios.post(`${process.env.MIX_APP_URL}/api/cart`, cartItem).then((response) => {
+        console.log(cartItem);
+      axios.post(`${process.env.MIX_APP_URL}/api/v1/cart-item`, cartItem).then((response) => {
         commit('UPDATE_CART_ITEMS', response.data)
       });
     },
     removeCartItem ({ commit }, cartItem) {
-      axios.delete(`${process.env.MIX_APP_URL}/api/cart/delete`, cartItem).then((response) => {
+      axios.delete(`${process.env.MIX_APP_URL}/api/cart-item/delete`, cartItem).then((response) => {
         commit('UPDATE_CART_ITEMS', response.data)
       });
     },
     removeAllCartItems ({ commit }) {
-      axios.delete(`${process.env.MIX_APP_URL}/api/cart/delete/all`).then((response) => {
+      axios.delete(`${process.env.MIX_APP_URL}/api/cart-item/delete/all`).then((response) => {
         commit('UPDATE_CART_ITEMS', response.data)
       });
     }

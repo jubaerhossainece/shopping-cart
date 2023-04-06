@@ -1,4 +1,22 @@
-import axios from 'axios';
+import axiosIns from 'axios';
+
+
+const axios = axiosIns.create({
+    // You can add your headers here
+    baseURL: process.env.MIX_APP_URL,
+    // baseURL: 'https://sources.com.bd/',
+    timeout: 90000,
+    headers: {
+        'Accept': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Access-Control-Allow-Origin': '*',
+        Authorization: {
+            toString() {
+                return `Bearer ${localStorage.getItem('token')}`
+            },
+        },
+    }
+})
 
 const state = {
   productItems: [] 

@@ -13,12 +13,12 @@
                     <a href="#" class="text-default mb-2" data-abc="true">{{ productItem.name }}</a>
                 </h6>
 
-                <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
+                <a href="#" class="text-muted" data-abc="true">Beverage</a>
             </div>
 
             <h3 class="pb-3 pt-3 font-weight-semibold">${{productItem.price}}</h3>
 
-            <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+            <button type="button" @click="addCartItem(productItem)" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
 
             
         </div>

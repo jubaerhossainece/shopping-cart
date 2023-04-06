@@ -19,4 +19,27 @@ class CartController extends Controller
             ]
         ]);
     }
+
+    public function store(Request $request){
+        $user = auth('sanctum')->user();
+        $cart_item = new Cart;
+        $cart_item->user_id = $user->id;
+        $cart_item->product_id = $request->id;
+        $cart_item->product_name = $request->name;
+        $cart_item->image = $request->image;
+        $cart_item->product_price = $request->price;
+        $cart_item->product_discount = $request->discount;
+        $cart_item->product_quantity = 1;
+        $cart_item->save();
+
+        $cart_items = Cart::select('id', 'user_id', 'product_name', 'image', 'product_price', 'product_discount', 'product_quantity')->get();
+
+        return response([
+            'status' => true,
+            'message' => 'Product added to cart',
+            'payload' => [
+                'cart_items' => $cart_items
+            ]
+        ]);
+    }
 }

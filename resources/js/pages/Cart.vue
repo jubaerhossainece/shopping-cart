@@ -12,7 +12,7 @@
                     <router-link class="btn back-btn" to="/products"><i class="fas fa-long-arrow-left"></i>Continue shopping</router-link>
                     </div>
                     <div class="col-md-7">
-                        <cart-item v-for="cartItem in cartItems" :key="cartItem.id"></cart-item>
+                        <cart-item v-for="cartItem in cartItems" :cart-item="cartItem" :key="cartItem.id"></cart-item>
                     </div>
                     <div class="col-md-5">
                         <div class="card mb-4">
@@ -69,9 +69,6 @@
         },
         computed: {
             ...mapGetters(["cartItems", "cartTotal", "cartQuantity"]),
-        },
-        created() {
-            this.$store.dispatch("getCartItems");
         },
         methods: {
             ...mapActions(["removeAllCartItems"]),

@@ -21301,9 +21301,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     CartItem: _components_CartItem_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)(["cartItems", "cartTotal", "cartQuantity"])),
-  created: function created() {
-    this.$store.dispatch("getCartItems");
-  },
   methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapActions)(["removeAllCartItems"]))
 });
 
@@ -21466,58 +21463,46 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "card rounded-3 mb-4"
 };
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_2 = {
   "class": "card-body p-4"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_3 = {
   "class": "row d-flex justify-content-between align-items-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_4 = {
   "class": "col-md-2 col-lg-2 col-xl-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
-  "class": "img-fluid rounded-3",
-  alt: "Cotton T-shirt"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_5 = ["src"];
+var _hoisted_6 = {
   "class": "col-md-3 col-lg-3 col-xl-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+};
+var _hoisted_7 = {
   "class": "lead fw-normal mb-2"
-}, "Basic T-shirt"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "text-muted"
-}, "Size: "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("M "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "text-muted"
-}, "Color: "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Grey")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-md-3 col-lg-3 col-xl-2 d-flex"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "btn btn-link px-2",
-  onclick: "this.parentNode.querySelector('input[type=number]').stepDown()"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-minus"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  id: "form1",
-  min: "0",
-  name: "quantity",
-  value: "2",
-  type: "number",
-  "class": "form-control form-control-sm"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "btn btn-link px-2",
-  onclick: "this.parentNode.querySelector('input[type=number]').stepUp()"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-plus"
-})])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"btn btn-link px-2\"\n                onclick=\"this.parentNode.querySelector('input[type=number]').stepDown()\">\n                <i class=\"fas fa-minus\"></i>\n                </button> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <input id=\"form1\" min=\"0\" name=\"quantity\" value=\"2\" type=\"number\"\n                class=\"form-control form-control-sm\" /> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"btn btn-link px-2\"\n                onclick=\"this.parentNode.querySelector('input[type=number]').stepUp()\">\n                <i class=\"fas fa-plus\"></i>\n                </button> ")], -1 /* HOISTED */);
+var _hoisted_9 = {
   "class": "col-md-3 col-lg-2 col-xl-2 offset-lg-1"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+};
+var _hoisted_10 = {
   "class": "mb-0"
-}, "$499.00")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-md-1 col-lg-1 col-xl-1 text-end"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#!",
   "class": "text-danger"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-trash fa-lg"
-})])])])], -1 /* HOISTED */);
-var _hoisted_3 = [_hoisted_2];
+})])], -1 /* HOISTED */);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: $props.cartItem.image,
+    "class": "img-fluid rounded-3",
+    alt: "Cotton T-shirt"
+  }, null, 8 /* PROPS */, _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.cartItem.product_name), 1 /* TEXT */)]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_10, "$" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.cartItem.product_price), 1 /* TEXT */)]), _hoisted_11])])]);
 }
 
 /***/ }),
@@ -21567,18 +21552,15 @@ var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
     href: "#",
     "class": "text-muted",
     "data-abc": "true"
-  }, "Laptops & Notebooks", -1 /* HOISTED */);
+  }, "Beverage", -1 /* HOISTED */);
 });
 var _hoisted_10 = {
   "class": "pb-3 pt-3 font-weight-semibold"
 };
 var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    "class": "btn bg-cart"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "fa fa-cart-plus mr-2"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Add to cart")], -1 /* HOISTED */);
+  }, null, -1 /* HOISTED */);
 });
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21588,7 +21570,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     width: "96",
     height: "350",
     alt: ""
-  }, null, 8 /* PROPS */, _hoisted_4)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.productItem.name), 1 /* TEXT */)]), _hoisted_9]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_10, "$" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.productItem.price), 1 /* TEXT */), _hoisted_11])]);
+  }, null, 8 /* PROPS */, _hoisted_4)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.productItem.name), 1 /* TEXT */)]), _hoisted_9]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_10, "$" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.productItem.price), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return _ctx.addCartItem($props.productItem);
+    }),
+    "class": "btn bg-cart"
+  }, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Add to cart")])])]);
 }
 
 /***/ }),
@@ -21717,8 +21705,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.cartItems, function (cartItem) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_cart_item, {
+      "cart-item": cartItem,
       key: cartItem.id
-    });
+    }, null, 8 /* PROPS */, ["cart-item"]);
   }), 128 /* KEYED_FRAGMENT */))]), _hoisted_10])])])])])]);
 }
 
@@ -22186,6 +22175,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 
+var axios = axios__WEBPACK_IMPORTED_MODULE_0__["default"].create({
+  // You can add your headers here
+  baseURL: "http://127.0.0.1:8000",
+  // baseURL: 'https://sources.com.bd/',
+  timeout: 90000,
+  headers: {
+    'Accept': 'application/json',
+    'X-Requested-With': 'XMLHttpRequest',
+    'Access-Control-Allow-Origin': '*',
+    Authorization: {
+      toString: function toString() {
+        return "Bearer ".concat(localStorage.getItem('token'));
+      }
+    }
+  }
+});
 var state = {
   cartItems: []
 };
@@ -22197,26 +22202,27 @@ var mutations = {
 var actions = {
   getCartItems: function getCartItems(_ref) {
     var commit = _ref.commit;
-    axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("".concat("http://127.0.0.1:8000", "/api/v1/cart-items")).then(function (response) {
+    axios.get("".concat("http://127.0.0.1:8000", "/api/v1/cart-items")).then(function (response) {
       console.log(response.data.payload.cart_items);
       commit('UPDATE_CART_ITEMS', response.data.payload.cart_items);
     });
   },
   addCartItem: function addCartItem(_ref2, cartItem) {
     var commit = _ref2.commit;
-    axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("".concat("http://127.0.0.1:8000", "/api/cart"), cartItem).then(function (response) {
+    console.log(cartItem);
+    axios.post("".concat("http://127.0.0.1:8000", "/api/v1/cart-item"), cartItem).then(function (response) {
       commit('UPDATE_CART_ITEMS', response.data);
     });
   },
   removeCartItem: function removeCartItem(_ref3, cartItem) {
     var commit = _ref3.commit;
-    axios__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]("".concat("http://127.0.0.1:8000", "/api/cart/delete"), cartItem).then(function (response) {
+    axios["delete"]("".concat("http://127.0.0.1:8000", "/api/cart-item/delete"), cartItem).then(function (response) {
       commit('UPDATE_CART_ITEMS', response.data);
     });
   },
   removeAllCartItems: function removeAllCartItems(_ref4) {
     var commit = _ref4.commit;
-    axios__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]("".concat("http://127.0.0.1:8000", "/api/cart/delete/all")).then(function (response) {
+    axios["delete"]("".concat("http://127.0.0.1:8000", "/api/cart-item/delete/all")).then(function (response) {
       commit('UPDATE_CART_ITEMS', response.data);
     });
   }
@@ -22259,6 +22265,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 
+var axios = axios__WEBPACK_IMPORTED_MODULE_0__["default"].create({
+  // You can add your headers here
+  baseURL: "http://127.0.0.1:8000",
+  // baseURL: 'https://sources.com.bd/',
+  timeout: 90000,
+  headers: {
+    'Accept': 'application/json',
+    'X-Requested-With': 'XMLHttpRequest',
+    'Access-Control-Allow-Origin': '*',
+    Authorization: {
+      toString: function toString() {
+        return "Bearer ".concat(localStorage.getItem('token'));
+      }
+    }
+  }
+});
 var state = {
   productItems: []
 };
@@ -22270,7 +22292,7 @@ var mutations = {
 var actions = {
   getProductItems: function getProductItems(_ref) {
     var commit = _ref.commit;
-    axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("".concat("http://127.0.0.1:8000", "/api/v1/products")).then(function (response) {
+    axios.get("".concat("http://127.0.0.1:8000", "/api/v1/products")).then(function (response) {
       commit('UPDATE_PRODUCT_ITEMS', response.data.payload.products);
       console.log(response.data.payload.products);
       console.log("".concat("http://127.0.0.1:8000", "/api/v1/products"));

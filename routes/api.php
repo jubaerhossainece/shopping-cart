@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => '/v1'],function(){
+Route::group(['prefix' => '/v1', 'middleware' => 'auth:sanctum'],function(){
     Route::get('/products', [ProductController::class, 'index']);
     Route::get('/cart-items', [CartController::class, 'index']);
+    Route::post('/cart-item', [CartController::class, 'store']);
 });
 
