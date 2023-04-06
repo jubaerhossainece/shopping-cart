@@ -9,7 +9,15 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index(){
-        return Product::select('id', 'name', 'price', 'discount', 'image')
+        $products = Product::select('id', 'name', 'price', 'discount', 'image')
         ->get();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Product list',
+            'payload' => [
+                'products' => $products
+            ]
+        ]);
     }
 }

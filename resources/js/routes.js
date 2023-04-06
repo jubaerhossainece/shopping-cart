@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import Login from './pages/auth/Login.vue';
 import Register from './pages/auth/Register.vue';
-import Cart from './components/Cart.vue';
+import Cart from './pages/Cart.vue';
 import Product from './pages/ProductList.vue';
 import ProductCard from "./components/ProductCard.vue";
 
@@ -53,7 +53,6 @@ router.beforeEach((to, from, next) => {
     .post(`${process.env.MIX_APP_URL}/auth-check`,{}, config)
     .then(response => {
 
-      console.log(response);
       isAuthenticated = response.data.status;
 
     })
@@ -82,7 +81,6 @@ router.beforeEach((to, from, next) => {
         }
       }
     });
-      console.log(auth_token);
       
 })
 

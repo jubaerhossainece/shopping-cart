@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '/v1'],function(){
     Route::get('/products', [ProductController::class, 'index']);
+    Route::get('/cart-items', [CartController::class, 'index']);
 });
 

@@ -17,11 +17,12 @@
 
 <script>
     import axios from 'axios';
-
+    import {mapGetters} from "vuex";
+    
     export default {
         name: 'Navbar',
         mounted() {
-            console.log('Component mounted.')
+            
         },
         methods:{
             logout(){
@@ -42,6 +43,14 @@
                     console.log(error);
                 })
             }
+        },
+        computed: {
+            ...mapGetters([
+            'cartQuantity'
+            ])
+        },
+        created() {
+            this.$store.dispatch("getCartItems");
         }
     }
 </script>

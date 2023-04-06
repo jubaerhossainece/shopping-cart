@@ -3,238 +3,15 @@
         <nav-bar></nav-bar>
         <div class="row">
             
-            <div v-for="product in products" :key="product.id" class="col-md-3 mt-2">
-                <product-card></product-card>
+            <div v-for="product in productItems" :key="product.id" class="col-md-3 mt-2">
+                <product-card :productItem="product"></product-card>
             </div>
-
-
-            <!-- <div class="col-md-3 mt-2">
-            
-                
-                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-img-actions">
-                                            
-                                                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png" class="card-img img-fluid" width="96" height="350" alt="">
-                                                
-                                            
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body bg-light text-center">
-                                        <div class="mb-2">
-                                            <h6 class="font-weight-semibold mb-2">
-                                                <a href="#" class="text-default mb-2" data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a>
-                                            </h6>
-
-                                            <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
-                                        </div>
-
-                                        <h3 class="mb-0 font-weight-semibold">$250.99</h3>
-
-                                        <div>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                        </div>
-
-                                        <div class="text-muted mb-3">34 reviews</div>
-
-                                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-                                        
-                                    </div>
-                                </div>
-
-
-                            
-                                
-            </div> 
-
-            <div class="col-md-3 mt-2">
-            
-                
-                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-img-actions">
-                                            
-                                                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png" class="card-img img-fluid" width="96" height="350" alt="">
-                                                
-                                            
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body bg-light text-center">
-                                        <div class="mb-2">
-                                            <h6 class="font-weight-semibold mb-2">
-                                                <a href="#" class="text-default mb-2" data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a>
-                                            </h6>
-
-                                            <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
-                                        </div>
-
-                                        <h3 class="mb-0 font-weight-semibold">$250.99</h3>
-
-                                        <div>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                        </div>
-
-                                        <div class="text-muted mb-3">34 reviews</div>
-
-                                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-                                        
-                                    </div>
-                                </div>
-
-
-                            
-                                
-            </div> 
-
-
-            <div class="col-md-3 mt-2">
-            
-                
-                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-img-actions">
-                                            
-                                                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png" class="card-img img-fluid" width="96" height="350" alt="">
-                                                
-                                            
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body bg-light text-center">
-                                        <div class="mb-2">
-                                            <h6 class="font-weight-semibold mb-2">
-                                                <a href="#" class="text-default mb-2" data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a>
-                                            </h6>
-
-                                            <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
-                                        </div>
-
-                                        <h3 class="mb-0 font-weight-semibold">$250.99</h3>
-
-                                        <div>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                        </div>
-
-                                        <div class="text-muted mb-3">34 reviews</div>
-
-                                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-                                        
-                                    </div>
-                                </div>
-
-
-                            
-                                
-            </div> 
-
-
-            <div class="col-md-4 mt-2">
-            
-                
-                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-img-actions">
-                                            
-                                                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png" class="card-img img-fluid" width="96" height="350" alt="">
-                                                
-                                            
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body bg-light text-center">
-                                        <div class="mb-2">
-                                            <h6 class="font-weight-semibold mb-2">
-                                                <a href="#" class="text-default mb-2" data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a>
-                                            </h6>
-
-                                            <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
-                                        </div>
-
-                                        <h3 class="mb-0 font-weight-semibold">$250.99</h3>
-
-                                        <div>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                        </div>
-
-                                        <div class="text-muted mb-3">34 reviews</div>
-
-                                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-                                        
-                                    </div>
-                                </div>
-
-
-                            
-                                
-            </div> 
-
-
-            <div class="col-md-4 mt-2">
-            
-                
-                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-img-actions">
-                                            
-                                                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png" class="card-img img-fluid" width="96" height="350" alt="">
-                                                
-                                            
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body bg-light text-center">
-                                        <div class="mb-2">
-                                            <h6 class="font-weight-semibold mb-2">
-                                                <a href="#" class="text-default mb-2" data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a>
-                                            </h6>
-
-                                            <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
-                                        </div>
-
-                                        <h3 class="mb-0 font-weight-semibold">$250.99</h3>
-
-                                        <div>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                            <i class="fa fa-star star"></i>
-                                        </div>
-
-                                        <div class="text-muted mb-3">34 reviews</div>
-
-                                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-                                        
-                                    </div>
-                                </div>
-
-
-                            
-                                
-            </div> -->
         </div>
     </div>
 </template>
    
 <script>
+    import { mapGetters } from 'vuex';
     import NavBar from "../components/layouts/NavigationBar.vue";
     import ProductCard from "../components/ProductCard.vue";
 
@@ -244,12 +21,12 @@
             ProductCard,
         },
         computed: {
-            products(){
-                return this.$store.state.products;
-            }
+            ...mapGetters([
+            'productItems'
+            ])
         },
-        mounted(){
-            this.$store.dispatch('getProducts');
+        created() {
+            this.$store.dispatch('getProductItems');
         }
     }
 </script>
