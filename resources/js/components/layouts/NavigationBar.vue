@@ -5,7 +5,7 @@
 
             <div class="d-flex">
                
-                <router-link to="/cart" class="btn"><i class="fas fa-cart-plus pr-2">{{ cartQuantity }}</i></router-link>
+                <router-link to="/cart" class="btn"><i class="fas fa-cart-plus pr-2"></i><span class="badge rounded-pill bg-primary">{{cartQuantity}}</span></router-link>
 
                 <button class="btn" @click="logout">
                     <i class="fas fa-sign-out-alt pr-2"></i>
