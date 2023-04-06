@@ -3,8 +3,7 @@ import axiosIns from 'axios';
 
 const axios = axiosIns.create({
     // You can add your headers here
-    baseURL: process.env.MIX_APP_URL,
-    // baseURL: 'https://sources.com.bd/',
+    // baseURL: process.env.MIX_APP_URL,
     timeout: 90000,
     headers: {
         'Accept': 'application/json',
@@ -30,11 +29,9 @@ const mutations = {
 const actions = {
   getProductItems ({ commit }) {
     axios
-    .get(`${process.env.MIX_APP_URL}/api/v1/products`)
+    .get(`api/v1/products`)
     .then((response) => {
       commit('UPDATE_PRODUCT_ITEMS', response.data.payload.products);
-      console.log(response.data.payload.products);
-      console.log(`${process.env.MIX_APP_URL}/api/v1/products`);
     });
   }
 }

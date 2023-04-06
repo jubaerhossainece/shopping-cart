@@ -59,7 +59,7 @@
         methods: {
             OnLogin(){
                 axios
-                .post(`${process.env.MIX_APP_URL}/login`, this.form)
+                .post(`/login`, this.form)
                 .then(response => {
                     console.log(response);
                     let token = response.data.payload.token;

@@ -62,7 +62,7 @@
         methods: {
             OnRegister(){
                 axios
-                .post(`${process.env.MIX_APP_URL}/register`, this.form)
+                .post(`/register`, this.form)
                 .then(response => {
                     console.log(response);
                     if(response.data.status == true){

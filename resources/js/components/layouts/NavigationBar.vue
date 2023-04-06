@@ -29,7 +29,7 @@
                 };
 
                 axios
-                .post(`${process.env.MIX_APP_URL}/logout`,{}, config)
+                .post(`/logout`,{}, config)
                 .then(response => {
                     console.log(response);
                     if(response.data.status == true){

@@ -38,7 +38,7 @@
                                         <p class="mb-0">(including VAT)</p>
                                     </strong>
                                     </div>
-                                    <span><strong>$53.98</strong></span>
+                                    <span><strong>${{ cartTotal }}</strong></span>
                                 </li>
                                 </ul>
 

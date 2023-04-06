@@ -50,7 +50,7 @@ router.beforeEach((to, from, next) => {
     };
 
     axios
-    .post(`${process.env.MIX_APP_URL}/auth-check`,{}, config)
+    .post(`/auth-check`,{}, config)
     .then(response => {
 
       isAuthenticated = response.data.status;
