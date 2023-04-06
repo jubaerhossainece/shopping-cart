@@ -58,11 +58,7 @@ const actions = {
       }, 0).toFixed(2);
     },
     cartQuantity: state => {
-    //   return state.cartItems.reduce((acc, cartItem) => {
-    //     return cartItem.quantity + acc;
-    //   }, 0);
-    console.log('cart-'+state.cartItems.length);
-    return state.cartItems.length;
+        return state.cartItems.length;
     }
   }
 
