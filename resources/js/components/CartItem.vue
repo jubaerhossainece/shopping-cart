@@ -19,7 +19,7 @@
                 <input id="form1" min="1" name="quantity" :value="cartItem.product_quantity" type="number"
                 class="form-control form-control-sm" />
 
-                <button @click="addCartItem(cartItem)" class="btn btn-link px-2"
+                <button @click="increaseCartItem(cartItem.id)" class="btn btn-link px-2"
                 onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                 <i class="fas fa-plus"></i>
                 </button>
@@ -44,7 +44,7 @@
         props: ['cartItem'],
         methods: {
             ...mapActions([
-                'addCartItem',
+                'increaseCartItem',
                 'removeCartItem',
                 'reduceCartItem'
             ])

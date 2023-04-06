@@ -32,13 +32,18 @@ const actions = {
     getCartItems ({ commit }) {
       axios.get(`/api/v1/cart-items`)
       .then((response) => {
-        console.log(response.data.payload.cart_items);
         commit('UPDATE_CART_ITEMS', response.data.payload.cart_items)
       });
     },
     addCartItem ({ commit }, cartItem) {
-        console.log(cartItem);
       axios.post(`/api/v1/cart-item`, cartItem).then((response) => {
+        console.log(response);
+        commit('UPDATE_CART_ITEMS', response.data.payload.cart_items)
+      });
+    },
+    increaseCartItem({ commit }, cartId) {
+      axios.post(`/api/v1/cart-item/${cartId}/increase`).then((response) => {
+        console.log(response);
         commit('UPDATE_CART_ITEMS', response.data.payload.cart_items)
       });
     },
@@ -49,6 +54,13 @@ const actions = {
     },
     reduceCartItem({ commit }, cartId) {
       axios.post(`/api/v1/cart-item/${cartId}/reduce`).then((response) => {
+        commit('UPDATE_CART_ITEMS', response.data.payload.cart_items)
+      });
+    },
+    removeAllCartItem({ commit }) {
+      axios.delete(`/api/v1/cart-item/remove-all`)
+        .then((response) => {
+          console.log(response.data.payload.cart_items);
         commit('UPDATE_CART_ITEMS', response.data.payload.cart_items)
       });
     }
